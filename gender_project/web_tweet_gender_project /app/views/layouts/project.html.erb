@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TweetGenderProject</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdqXf5gd5VDPw4CzEe7OsQ9_aGXu7sp6Q&libraries=visualization"></script>
+  <%= csrf_meta_tags %>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+</head>
+
+<header>
+	<%= render(:partial => "layouts/partialnavgation") %>
+</header>
+
+<body>
+<%= yield %>
+<div id ='footer'>
+	<p id = 'copyright'>&copy; genderproject PENG WANG MINGYU GAO</p>
+</div>
+</body>
+</html>

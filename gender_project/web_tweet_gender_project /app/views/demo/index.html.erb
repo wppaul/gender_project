@@ -1,0 +1,9 @@
+<h1>Demo#index</h1>
+<p>Hello World! From index</p>
+
+<a href='/demo/hello'>Hello Page 1</a><br>
+
+<%= link_to('Hello Page 2', {:action => 'hello'})%>
+<%= link_to('Roar', '#', :onclick => "hello('JavaScripts'); return true;")%>
+<%= javascript_tag("hello('HAHA');")%>
+<div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>

@@ -1,0 +1,8 @@
+---
+# tasks file for runpostcode
+- name: copy file to VMs
+  copy: src=../files/python2addpostcodeweb.py dest=/home/ubuntu owner=ubuntu group=ubuntu mode=0644
+- name: runpostcode
+  shell: cd /home/ubuntu; nohup python python2addpostcodeweb.py >> output.txt&
+  async: 10
+  poll: 0

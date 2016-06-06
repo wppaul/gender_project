@@ -1,0 +1,20 @@
+<script type="text/javascript">
+// window.onload=function(){
+//     if(fresh_flag){
+//         fresh_flag=false;
+//         window.location.reload();
+//     }
+// }</script>
+<div id="data_display_panel" class="data_panel">
+        <div id="sentiment_fan" style="height: 200px; margin: 0 auto"></div>
+</div>
+<div id="feature_panel" class="data_panel">
+      <b>Gender selection</b><br>
+      <% @heat_gender.each do |k,v|%>
+        <input type="radio" name="feature" onclick='setHeatMapFeatureData("<%= k %>")'> <%= v %><br>
+      <% end %>
+</div>
+<div id="map"></div>
+<script >
+initHeatMap();
+</script>

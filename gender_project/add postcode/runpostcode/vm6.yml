@@ -1,0 +1,9 @@
+---
+# file: webservers.yml
+- name: Install the software package webservers
+  hosts: vm6
+  become: yes
+  become_user: root
+  gather_facts: no
+  roles:
+    - addpostcode6

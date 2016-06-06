@@ -1,0 +1,28 @@
+---
+# tasks file for runpostcode
+- name: copy file to VMs
+  copy: src=../files/post dest=/home/ubuntu owner=ubuntu group=ubuntu mode=0644
+- name: runpostcode1
+  shell: cd /home/ubuntu/post; nohup python addpostcode1.py >> output.txt&
+  async: 10
+  poll: 0
+- name: runpostcode2
+  shell: cd /home/ubuntu/post; nohup python addpostcode2.py >> output.txt&
+  async: 10
+  poll: 0
+- name: runpostcode3
+  shell: cd /home/ubuntu/post; nohup python addpostcode3.py >> output.txt&
+  async: 10
+  poll: 0
+- name: runpostcode4
+  shell: cd /home/ubuntu/post; nohup python addpostcode4.py >> output.txt&
+  async: 10
+  poll: 0
+- name: runpostcode5
+  shell: cd /home/ubuntu/post; nohup python addpostcode5.py >> output.txt&
+  async: 10
+  poll: 0
+- name: runpostcode6
+  shell: cd /home/ubuntu/post; nohup python addpostcode6.py >> output.txt&
+  async: 10
+  poll: 0

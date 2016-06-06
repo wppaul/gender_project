@@ -1,0 +1,13 @@
+<%@gender.each_with_index do |gender,index|%>
+    <div id="<%=gender%>-container" class="col-md-6" style='min-width: 200px; height: 400px; margin: 0 auto; margin-bottom: 100px; <%= (index==0 || index==1) ? "margin-top: 170px" : ""%>'></div>
+<% end%>
+
+<div id="commale" class="col-md-6" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+<div id="comfemale" class="col-md-6" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+<script type="text/javascript">
+   nametest();
+   comparemale();
+   comparefemale();
+</script>

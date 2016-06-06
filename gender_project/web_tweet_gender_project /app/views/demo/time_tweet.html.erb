@@ -1,0 +1,12 @@
+<% @time.each_with_index do |time,index|%>
+    <div id="<%=time%>-container" class="col-md-6" style='min-width: 200px; height: 400px; margin: 0 auto; margin-bottom: 100px; <%= (index==0 || index==1) ? "margin-top: 170px" : ""%>'></div>
+<% end%>
+<!-- <div id="combine" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div id="user-container" style="min-width: 310px; height: 400px; margin: 0 auto"></div> -->
+<div id="combine" class="col-md-6" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div id="user-container" class="col-md-6" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<script type="text/javascript">
+   showbar();
+   combine();
+   // linetest();
+</script>

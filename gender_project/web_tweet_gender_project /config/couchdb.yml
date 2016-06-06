@@ -1,0 +1,8 @@
+development: &development
+  protocol: 'http'
+  host: 115.146.89.191
+  port: 5984
+  prefix: 
+  suffix: 
+  username:
+  password:

@@ -1,0 +1,7 @@
+[withkey]
+115.146.89.191
+
+
+[withkey:vars]
+ansible_user=ubuntu
+ansible_private_key_file=/Users/Paul/Desktop/project_key.pem

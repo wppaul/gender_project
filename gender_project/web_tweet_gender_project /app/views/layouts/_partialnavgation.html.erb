@@ -1,0 +1,35 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+          <!-- <h3>Twitter Gender Identification Project</h3> -->
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+      	<li><%= link_to club_shopping_path , :onclick => 'poly_continue_flag=false;' do %> 
+             <%= fa_icon "futbol-o 2x muted", text: "Club VS Shopping" %>
+           <% end %>
+        </li>
+        <li><%= link_to afl_clubs_path , :onclick => 'poly_continue_flag=false;' do %> 
+             <%= fa_icon "users 2x muted", text: "Club Profile" %>
+           <% end %>
+        </li>
+        <li><%= link_to time_tweet_path , :onclick => 'poly_continue_flag=false;' do %> 
+             <%= fa_icon "line-chart 2x muted", text: "Timing Tweets " %>
+           <% end %>
+        </li>
+        <li><%= link_to top_name_path , :onclick => 'poly_continue_flag=false;' do %> 
+             <%= fa_icon "venus-mars 2x muted", text: "Top Name " %>
+           <% end %>
+        </li>
+        <li><%= link_to heat_map_path , :onclick => 'poly_continue_flag=false;' do %> 
+             <%= fa_icon "map 2x muted", text: "Heatmap" %>
+           <% end %>
+        </li>
+        <li><%= link_to postcode_path , :onclick => 'poly_continue_flag=false;' do %> 
+             <%= fa_icon "map-marker 2x muted", text: "Postcode" %>
+           <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,12 @@
+<% @boxes.each_with_index do |box,index|%>
+    <div id="<%=box%>-container" class="col-md-6" style='min-width: 200px; height: 400px; margin: 0 auto; margin-bottom: 100px; <%= (index==0 || index==1) ? "margin-top: 170px" : ""%>'></div>
+<% end%>
+
+<div id="club" class="col-md-6" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div id="shop" class="col-md-6" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+<script type="text/javascript">
+   thetest();
+   drawclub();
+   drawshop();
+</script>

@@ -1,0 +1,23 @@
+<div id="data_display_panel" class="data_panel">
+        <b>Data Collection : </b><span id='surburd-name'></span>
+        <div id="panel-data">Hover over Melbourne area to get data</div>
+</div>
+
+<div id="feature_panel" class="data_panel">
+      <b>Select one of the Properties</b><br>
+      <% @data_feature.each do |k,v|%>
+        <input type="radio" name="feature" onclick='setFeatureData("<%= k %>")'> <%= v %><br>
+      <% end %>
+</div>
+
+<div id="legend_panel" class="data_panel">
+    <b>Color Panel</b>
+    <div id="legend-data"></div>
+</div>
+
+<div id="show" style="min-width: 435px; height: 400px; margin: 0 auto"></div>
+
+<div id="map"></div>
+<script >
+  initPolyMap();
+</script>

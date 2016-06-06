@@ -1,0 +1,32 @@
+.navbar {
+   background-color: rgba(0,0,0,0.6);
+   background: rgba(0, 0, 51,0.9); 
+   border: 0;
+   margin-bottom: 0;
+}
+.nav .navbar-nav {
+  display: inline;
+}
+.navbar-header span {
+   padding-left: 30px;
+   padding-right: 50px;
+   color: white;
+   font-family: myriad;
+}
+.nav .image {
+   padding-right: 25px;
+   color: white;
+}
+.nav .navcontent {
+   color: white;
+   font-family: myriad;
+   font-size: 15px;
+   display: inline;
+}
+.nav .navcontent:hover {
+   color: gray;
+}
+.nav li {
+   padding-right: 30px;
+   display: inline;
+}

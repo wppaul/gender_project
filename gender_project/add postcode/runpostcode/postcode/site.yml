@@ -1,0 +1,7 @@
+# file: master.yml
+- include: vm1.yml
+- include: vm2.yml
+- include: vm3.yml
+- include: vm4.yml
+- include: vm5.yml
+- include: vm6.yml
