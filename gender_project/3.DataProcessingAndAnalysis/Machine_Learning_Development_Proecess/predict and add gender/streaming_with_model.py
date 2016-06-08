@@ -153,8 +153,8 @@ class TwitterStreamListener(tweepy.StreamListener):
 
 
 def notification(msg):
-    FROM ="professional.bigdata@hotmail.com"
-    TO =["wppaul@hotmail.com","edwardgao46@yahoo.com.au"]
+    FROM ="xxxx"
+    TO =["xxxxx","xxxxx"]
 
     SUBJECT = "Google API is reaching the limit!!"
     TEXT = msg
@@ -163,7 +163,7 @@ def notification(msg):
         """%(SUBJECT,TEXT)
     server = smtplib.SMTP('smtp-mail.outlook.com',port = 587)
     server.starttls()
-    server.login('professional.bigdata@hotmail.com','professional@bigdata')
+    server.login('xxxxx','xxxxx')
     server.sendmail(FROM,TO,message)
     server.quit()
 
@@ -444,13 +444,13 @@ if __name__ == '__main__':
 
     #Connect Face++ API
     SERVER = 'http://api.us.faceplusplus.com/'
-    API_KEY = '3a7092b400dc9827359d7093801f057d'
-    API_SECRET = 'ChXgzhIEau8A1O_aKOanTS7dzY0AgVKQ'
+    API_KEY = 'xxxx'
+    API_SECRET = 'xxxx'
     facepp_api = API(API_KEY,API_SECRET,SERVER)
 
     #Connect CouchDB
     print 'Connecting CouchDB...'
-    data_base = connect_couchdb('http://115.146.89.191:5984/', 'melbourne_tweets_new')
+    data_base = connect_couchdb('xxxx', 'melbourne_tweets_new')
 
     #Prepare for ML Models
     lemmatizer = nltk.stem.wordnet.WordNetLemmatizer()

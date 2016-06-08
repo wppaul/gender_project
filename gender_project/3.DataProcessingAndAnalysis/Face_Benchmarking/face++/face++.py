@@ -12,8 +12,8 @@ sys.setdefaultencoding('utf8')
 
 
 SERVER = 'http://api.us.faceplusplus.com/'
-API_KEY = '98ba2c74c58ca1e2b9ccfafb047669a5'
-API_SECRET = 'L98vUONg9V3Sd9CIwExc-kOHG_hk6Nup'
+API_KEY = 'xxxx'
+API_SECRET = 'xxxxx'
 api = API(API_KEY,API_SECRET,SERVER)
 
 url_list = []

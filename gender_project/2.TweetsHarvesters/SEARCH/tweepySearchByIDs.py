@@ -93,10 +93,10 @@ def save_to_database(raw_tweets):
 
 if __name__ == '__main__':
 
-    CONSUMER_KEY = 'l69z6yj3QLLayxnqKT5aiKmXE'
-    CONSUMER_SECRET = 'uh1y8C8kjhgUoxP7snicfsPctdclHQETCLhvAh5ejf71mszJgG'
-    ACCESS_TOKEN = '3181028461-tOaBc8xmSnmOrSfRWqyOJuxcDAMuEaKQrVFYpgO'
-    ACCESS_TOKEN_SECRET = '1GlIDZnD1StVcJqb1mOF6EYGY0V5Ienddoeg2lLiNJ5cY'
+    CONSUMER_KEY = 'xx'
+    CONSUMER_SECRET = 'xx'
+    ACCESS_TOKEN = 'xxxx'
+    ACCESS_TOKEN_SECRET = 'xxxxx'
 
 
     auth = tweepy.OAuthHandler(CONSUMER_KEY,CONSUMER_SECRET)

@@ -1,9 +1,6 @@
 
 # coding: utf-8
 
-# In[2]:
-
-
 import nltk
 import re
 from sklearn.feature_extraction import DictVectorizer
@@ -496,7 +493,6 @@ def get_gender(prob):
     
 def connect_couchdb(ip, db_name):
     couch = couchdb.Server(ip)
-#     couch.resource.credentials = ('wppaul', 'qwert12345')
     try:
         database = couch.create(db_name)
     except couchdb.http.PreconditionFailed as e:
@@ -504,12 +500,12 @@ def connect_couchdb(ip, db_name):
     return database
         
 #Connect CouchDB
-database = connect_couchdb('http://115.146.89.191:5984/', 'melbourne_tweets_new')
+database = connect_couchdb('xxxx', 'melbourne_tweets_new')
 
 #Connect Face++ API
 SERVER = 'http://api.us.faceplusplus.com/'
-API_KEY = 'ab7428d1948018d0c81dbb6b3f38723d'
-API_SECRET = 'e8BbAh7Wgg5pfJ8WSMcfhH-iAmad0AAF'
+API_KEY = 'xxxxx'
+API_SECRET = 'xxx'
 api = API(API_KEY,API_SECRET,SERVER)
 
 lemmatizer = nltk.stem.wordnet.WordNetLemmatizer()
@@ -592,98 +588,5 @@ for id in database:
             document['gender'] = 'female'
         database.save(document)
         print str(id), 'completed as', gender
-
-
-####################### TEST ##########################
-# f = open(test_set, 'r').read()
-# rows = f.split('\n')
-# pairs = []
-# testset = []
-# classes = []
-# predicts = []
-# genders = []
-# count_correct = 0
-# count_text = 0
-# count_description = 0
-# count_image = 0
-# count = 0
-# count_male = 0
-# count_female = 0
-# tp = []
-
-# for row in rows:
-#     pairs.append(row.split('\t'))
-# for pair in pairs:
-#     if len(pair) == 6:
-#         testset.append(pair)    
-
-# for each in testset:
-# #     if len(each[1]) >= 25:
-#     prob_text = predict_bow(each[1].decode('utf-8'), get_bigrams_BOW, vectorizer_text, clf_text)
-#     prob_description = predict_bow(each[2].decode('utf-8'), get_bigrams_BOW, vectorizer_description, clf_description)
-#     prob_image = float(each[4]) - (float(each[4]) - 0.5)/2
-#     prob = clf_prob.predict_proba([[prob_text,prob_description, prob_image]])[0][0]
-#     classes.append(each[0])
-#     predicts.append(prob)
-#     genders.append(get_gender(prob))
-
-#     if each[0] == 'male':
-#         tp.append(0)
-#     else:
-#         tp.append(1)
-
-#     if get_gender(prob) == each[0] and each[0] == 'male':
-#         count_male += 1
-#         count_correct += 1
-#     elif get_gender(prob) == each[0] and each[0] == 'female':
-#         count_female += 1
-#         count_correct += 1
-
-#     if get_gender(prob_text) == each[0]:
-#         count_text += 1
-
-#     if get_gender(prob_description) == each[0]:
-#         count_description += 1
-    
-#     if get_gender(prob_image) == each[0]:
-#         count_image += 1
-        
-#     count += 1
-
-# print 'Test Set Accuracy:'
-# print 'Male:', count_male, 'Female:', count_female
-# print 'Text:', count_text / float(count)
-# print 'Description:', count_description / float(count)
-# print 'Image:', count_image / float(count)
-# print 'Total:', count_correct / float(count)
-
-# print classification_report(classes,genders)
-# false_positive_rate, true_positive_rate, thresholds = roc_curve(tp,predicts)
-# print false_positive_rate, true_positive_rate, thresholds
-# roc_auc = auc(false_positive_rate, true_positive_rate)
-# print 'AUC:', roc_auc
-# print 'Log-loss:', log_loss(tp,predicts)
-
-#Draw the ROC Curve
-# plt.title('Receiver Operating Characteristic')
-# plt.plot(false_positive_rate, true_positive_rate, 'b', label='AUC = %0.3f'% roc_auc)
-# plt.legend(loc='lower right')
-# plt.plot([0,1],[0,1],'k--')
-# plt.xlim([0.0,1.0])
-# plt.ylim([0.0,1.0])
-# plt.ylabel('True Positive Rate')
-# plt.xlabel('False Positive Rate')
-# plt.show()
-
-print datetime.now() - startTime
-
-
-# In[ ]:
-
-
-
-
-# In[ ]:
-
 
 

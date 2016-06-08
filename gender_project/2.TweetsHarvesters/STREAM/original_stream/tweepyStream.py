@@ -33,7 +33,7 @@ def notification(msg):
 #smtp.live.com
     server = smtplib.SMTP('smtp-mail.outlook.com',port = 587)
     server.starttls()
-    server.login('professional.bigdata@hotmail.com','professional@bigdata')
+    server.login('xxxxx','xxxxx')
     server.sendmail(FROM,TO,message)
     server.quit()
 

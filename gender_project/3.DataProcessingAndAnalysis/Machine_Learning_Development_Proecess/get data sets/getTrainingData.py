@@ -10,8 +10,8 @@ reload(sys)
 sys.setdefaultencoding('utf8')
 
 SERVER = 'http://api.us.faceplusplus.com/'
-API_KEY = '7444b6cbcb6c3381309542816ff26e32'
-API_SECRET = 'XAXI-zZ13p0HBctYX5M_kxe2xutu_E7n'
+API_KEY = 'xxxx'
+API_SECRET = 'xxxx'
 
 api = API(API_KEY,API_SECRET,SERVER)
 
@@ -29,7 +29,7 @@ def get_face(newurl):
         pass
         return "NoResult"
 
-couch = couchdb.Server('http://115.146.89.191:5984')
+couch = couchdb.Server('xxxx')
 try:
 	database = couch.create('melbourne_tweets')
 except couchdb.http.PreconditionFailed as e:

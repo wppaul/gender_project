@@ -20,12 +20,8 @@ reload(sys)
 sys.setdefaultencoding('utf8')
 #print(sys.getdefaultencoding())
 
-CONSUMER_KEY = 'CWaCe1cSVZ52vhuAMpDpL7BUe'
-CONSUMER_SECRET = 'JnJuiQicmBgNF97mq3XLNNhdKg5S6leA0Ff3iAuxTj4YnbwitL'
-# ACCESS_TOKEN = '2781913309-qBuhr8kA7OeaBO4aAYiYDD71JgWfPBd0MChgWkO'
-# ACCESS_TOKEN_SECRET = 'CqAqs0ccGiO4YWcgVoBypk4E6KNPpv1Om9IqtkMvjp0KX'
-# auth = tweepy.OAuthHandler(CONSUMER_KEY,CONSUMER_SECRET)
-# auth.set_access_token(ACCESS_TOKEN,ACCESS_TOKEN_SECRET)
+CONSUMER_KEY = 'xxx'
+CONSUMER_SECRET = 'xxx'
 
 # App auth allows 450 requests other than 180 with user auth 
 auth = tweepy.AppAuthHandler(CONSUMER_KEY,CONSUMER_SECRET)
