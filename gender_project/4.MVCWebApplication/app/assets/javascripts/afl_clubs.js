@@ -1,5 +1,51 @@
-y = [13.2419624288296,13.5078926732808,14.3977361835601,11.8884456718148,9.43711431591149,8.52340527087382,11.7418431011558,8.72796699737479,8.53363335719887]
-function showChart(){
+// request data and render view
+function renderData(){
+    $.ajax({
+        url: database + club_gender,
+        type: 'get',
+        dataType: 'jsonp',
+        success: function(data){
+            club_name = [];
+            club_male = [];
+            club_female = [];
+            for(var i = 0; i < data.rows.length; i++){   
+                club_name.push(data.rows[i].key);    
+                club_male.push(data.rows[i].value[0]); 
+                club_female.push(data.rows[i].value[1]);     
+            }
+            processData(club_name,club_male,club_female);
+        }
+    });
+}
+
+// process data and draw chart
+function processData(club_name,club_male,club_female){
+    var totalmale = 0;
+    for (i=0; i<club_male.length; i++){
+        totalmale += club_male[i];
+    }
+
+    var totalfemale = 0;
+    for (i=0; i<club_female.length; i++){
+        totalfemale += club_female[i];
+    }
+    club_total = totalmale + totalfemale;
+
+    var male_percentage = [];
+    var female_percentage = [];
+    var club_percentage = [];
+    for (i=0; i<club_male.length; i++){
+        temp_male = club_male[i]/(club_male[i]+club_female[i])*100;
+        temp_female = club_female[i]/(club_male[i]+club_female[i])*100;
+        temp_club = (club_male[i]+club_female[i])/club_total*100;
+        male_percentage.push(temp_male);
+        female_percentage.push(temp_female);
+        club_percentage.push(temp_club);
+    }
+    showChart(club_name,male_percentage,female_percentage,club_percentage);
+}
+
+function showChart(club_name,male_percentage,female_percentage,club_percentage){
     // Create the chart
     $('#afl_clubs').highcharts({
         chart: {
@@ -28,112 +74,108 @@ function showChart(){
             name: 'Clubs',
             colorByPoint: true,
             data: [{
-                name: 'Carlton',
-                y: y[0],
-                drilldown: 'Carlton'
+                name: club_name[0],
+                y: club_percentage[0],
+                drilldown: club_name[0]
             }, {
-                name: 'Collinwood',
-                y: y[1],
-                drilldown: 'Collinwood'
+                name: club_name[1],
+                y: club_percentage[1],
+                drilldown: club_name[1]
             }, {
-                name: 'Stkilda',
-                y: y[8] ,
-                drilldown: 'Stkilda'
+                name: club_name[7],
+                y: club_percentage[7],
+                drilldown: club_name[7]
             }, {
-                name: 'Hawthorn',
-                y: y[3],
-                drilldown: 'Hawthorn'
+                name: club_name[3],
+                y: club_percentage[3],
+                drilldown: club_name[3]
             }, {
-                name: 'Melbourne',
-                y: y[4],
-                drilldown: 'Melbourne'
+                name: club_name[4],
+                y: club_percentage[4],
+                drilldown: club_name[4]
             }, {
-                name: 'Richmond',
-                y: y[6],
-                drilldown: 'Richmond'
+                name: club_name[6],
+                y: club_percentage[6],
+                drilldown: club_name[6]
             },{
-                name: 'Essendon',
-                y: y[2],
-                drilldown: 'Essendon'
+                name: club_name[2],
+                y: club_percentage[2],
+                drilldown: club_name[2]
             },{
-                name: 'NorthMelbourne',
-                y: y[5],
-                drilldown: 'NorthMelbourne'
+                name: club_name[5],
+                y: club_percentage[5],
+                drilldown: club_name[5]
             },{
-                name: 'WesternBulldog',
-                y: y[8],
-                drilldown: 'WesternBulldog'
+                name: club_name[8],
+                y: club_percentage[8],
+                drilldown: club_name[8]
             }]
         }],
         drilldown: {
             series: [{
-                name: 'Carlton',
-                id: 'Carlton',
+                name: club_name[0],
+                id: club_name[0],
                 data: [
-                    ['male', 68.3831101956746],
-                    ['female', 31.6168898043254],
+                    ['male',male_percentage[0]],
+                    ['female',female_percentage[0]],
                 ]
             }, {
-                name: 'Collinwood',
-                id: 'Collinwood',
+                name: club_name[1],
+                id: club_name[1],
                 data: [
-                    ['male', 66.65825340737],
-                    ['female', 33.34174659263],
+                    ['male',male_percentage[1]],
+                    ['female',female_percentage[1]],
                 ]
             }, {
-                name: 'Essendon',
-                id: 'Essendon',
+                name: club_name[2],
+                id: club_name[2],
                 data: [
-                    ['male', 68.3874023206251],
-                    ['female', 31.6125976793749],
+                    ['male',male_percentage[2]],
+                    ['female',female_percentage[2]],
                 ]
             }, {
-                name: 'Hawthorn',
-                id: 'Hawthorn',
+                name: club_name[3],
+                id: club_name[3],
                 data: [
-                    ['male', 69.3432750215085],
-                    ['female', 30.6567249784915],
+                    ['male',male_percentage[3]],
+                    ['female',female_percentage[3]],
                 ]
             }, {
-                name: 'Melbourne',
-                id: 'Melbourne',
+                name: club_name[4],
+                id: club_name[4],
                 data: [
-                    ['male', 70.6647398843931],
-                    ['female', 29.3352601156069],
+                    ['male',male_percentage[4]],
+                    ['female',female_percentage[4]],
                 ]
             }, {
-                name: 'NorthMelbourne',
-                id: 'NorthMelbourne',
+                name: club_name[5],
+                id: club_name[5],
                 data: [
-                    ['male', 71.72],
-                    ['female', 28.28],
+                    ['male',male_percentage[5]],
+                    ['female',female_percentage[5]],
                 ]
             }, {
-                name: 'Richmond',
-                id: 'Richmond',
+                name: club_name[6],
+                id: club_name[6],
                 data: [
-                    ['male', 69.3670150987224],
-                    ['female', 30.6329849012776],
+                    ['male',male_percentage[6]],
+                    ['female',female_percentage[6]],
                 ]
             }, {
-                name: 'Stkilda',
-                id: 'Stkilda',
+                name: club_name[7],
+                id: club_name[7],
                 data: [
-                    ['male', 70.1171875],
-                    ['female', 29.8828125],
+                    ['male',male_percentage[7]],
+                    ['female',female_percentage[7]],
                 ]
             }, {
-                name: 'WesternBulldog',
-                id: 'WesternBulldog',
+                name: club_name[8],
+                id: club_name[8],
                 data: [
-                    ['male', 70.1558130243707],
-                    ['female', 29.8441869756292],
+                    ['male',male_percentage[8]],
+                    ['female',female_percentage[8]],
                 ]
             }]
         }
     });
-
 }
-
-
-

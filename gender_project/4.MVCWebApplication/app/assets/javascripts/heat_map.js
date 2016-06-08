@@ -18,19 +18,6 @@ var gradient_base = [
     'rgba(0, 50, 255',
     'rgba(0, 25, 255',
     'rgba(0, 0, 255'
-    // 'rgba(0, 255, 255',
-    // 'rgba(0, 191, 255',
-    // 'rgba(0, 127, 255',
-    // 'rgba(0, 63, 255',
-    // 'rgba(0, 0, 255',
-    // 'rgba(0, 0, 223',
-    // 'rgba(0, 0, 191',
-    // 'rgba(0, 0, 159',
-    // 'rgba(0, 0, 127',
-    // 'rgba(63, 0, 91',
-    // 'rgba(127, 0, 63',
-    // 'rgba(191, 0, 31',
-    // 'rgba(255, 0, 0'
   ]
 
 function getGradient(){
@@ -44,14 +31,13 @@ function getGradient(){
     gradient.push(a+',1)');
   });
 }
-// var markers=[];
+
 function initHeatMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 11,
     center: melbourne_center_coordinates,
     mapTypeId: google.maps.MapTypeId.HYBRID//SATELLITE//TERRAIN
   });
-  // getPoints(movie_id_coordinates_address);
 }
 
 function getPoints(address) {
@@ -77,12 +63,12 @@ function getPoints(address) {
             };
           }
           getGradient();
-          // setMarkerToPoint(coordinates,sentiments);
+
           drawSentimentFanChart(good_sen,bad_sen,netural_sen);
           heatmap = new google.maps.visualization.HeatmapLayer({
           data: coordinates.slice(1,tweets_limit[current_topic]),
           rasius: 20,
-          // gradient: gradient,
+
           map: map
         });
         }
@@ -139,7 +125,7 @@ function drawSentimentFanChart(good_sen,bad_sen,netural_sen){
     });
 }
 
-// too slow to add all markers.
+
 function setMarkerToPoint(coordinates,sentiments){
   for(var i = 0; i < sentiments.length; i++){
     var marker = new MarkerWithLabel({
@@ -147,14 +133,14 @@ function setMarkerToPoint(coordinates,sentiments){
       draggable: false,
       raiseOnDrag: false,
       map: map,
-      labelContent: getLabelContent(sentiments[i]),//getContent(data.properties),
+      labelContent: getLabelContent(sentiments[i]),
       labelAnchor: new google.maps.Point(30, 40),
-      labelClass: "heatmapLabel", // the CSS class for the label
+      labelClass: "heatmapLabel", 
       labelStyle: {opacity: 1.0},
       icon: "http://placehold.it/1x1",
       visible: false
     });
-    // markers.push(marker);
+
     google.maps.event.addListener(marker, "mousemove", function(event) {
       marker.setVisible(true);
     });

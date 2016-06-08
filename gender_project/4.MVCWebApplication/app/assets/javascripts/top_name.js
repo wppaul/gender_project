@@ -125,8 +125,6 @@ function maleName() {
     });
 }
 
-
-
 function comparemale(){
         $('#commale').highcharts({
 
@@ -227,11 +225,9 @@ function comparefemale(){
             data: [165, 113, 105, 90, 85,85,80,78,71,71,69,59],
             pointPlacement: 'on'
         }, {
-            name: 'Real Name 1970-1979 Top Female Names',
+            name: 'Real Name 1980-1989 Top Female Names',
             data: [168,66,69,56,61,83,66,157,80,131,64,70],
             pointPlacement: 'on'
         }]
     });
-
-
 }

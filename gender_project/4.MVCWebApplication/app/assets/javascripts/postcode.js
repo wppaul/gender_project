@@ -8,10 +8,6 @@ var poly_continue_flag= true;
 var current_feature = "overview"
 var color_threshold=['#e6e6ff','#ccccff','#9999ff','#8080ff','#6666ff','#3333ff','#1a1aff']
 
-// var color_threshold=['#feebe2','#fcc5c0','#fa9fb5','#f768a1','#dd3497','#ae017e','#7a0177']
-// Alternative color choice
-// var color_threshold=['rgba(0, 255, 255, 1)', 'rgba(0, 127, 255, 1)', 'rgba(0, 0, 255, 1)', 'rgba(0, 0, 191, 1)', 'rgba(0, 0, 127, 1)', 'rgba(127, 0, 63, 1)', 'rgba(255, 0, 0, 1)' ]
-
 function initPolyMap() {
   polyMap = new google.maps.Map(document.getElementById('map'), {
     zoom: 9,
@@ -38,20 +34,9 @@ function getContent(properties){
   +'</td> </tr><tr> <td> Female Sentiment</td> <td>'+properties.female_sentiment_over_3.toFixed(6)
   +'</td> </tr><tr> <td> Average Children</td> <td>'+properties.averagechildren
   +'</td> </tr><tr> <td> Unemployment Rate</td> <td>'+properties.unemploymentrate
-  // +'</td> </tr> <tr> <td>Negative sentiment </td> <td>'+getFixedNumber(properties.sentiment_negative,3)
-  // +'</td> </tr><tr> <td>Positive sentiment </td> <td>'+getFixedNumber(properties.sentiment_positive,3)
-  // +'</td> </tr><tr> <td>Population</td> <td>'+properties.population
-  // +'</td> </tr><tr> <td>Movie related tweeted</td> <td>'+ properties.movie
-  // +'</td> </tr><tr> <td>Gym related tweeted</td> <td>'
-  // + properties.gym+'</td> </tr><tr> <td>Crime related tweeted</td> <td>'
-  // + properties.crime+'</td> </tr><tr> <td>Book related tweeted</td> <td>'
-  // + properties.book+'</td> </tr><tr> <td>Disease related tweeted</td> <td>'
-  // + properties.disease
   +'</td> </tr> </tbody> </table>';
 }
-// function getCountData(data,population){
-//   return (typeof data == "undefined") ? "undefined" : data["count"]*100000/population;
-// }
+
 function getFeatureContent(){
   if(current_feature=="overview"){
     return "";
@@ -94,18 +79,7 @@ function getRespond(attribute){
 function setPolyToMap(data){
   // Construct the polygon.
   cords=coordsParser(data.geometry.coordinates);
-  // var marker = new MarkerWithLabel({
-  //       position: new google.maps.LatLng(0,0),
-  //       draggable: false,
-  //       raiseOnDrag: false,
-  //       map: polyMap,
-  //       labelContent: data.properties.name,//getContent(data.properties),
-  //       labelAnchor: new google.maps.Point(30, 40),
-  //       labelClass: "polygonLabel", // the CSS class for the label
-  //       labelStyle: {opacity: 1.0},
-  //       icon: "http://placehold.it/1x1",
-  //       visible: false
-  //    });
+
   var polygon = new google.maps.Polygon({
     paths: cords,
     strokeColor: '#ff8c1a',
@@ -118,15 +92,12 @@ function setPolyToMap(data){
   google.maps.event.addListener(polygon, "mousemove", function(event) {
     polygon.setOptions({strokeColor: "#000000"});
     polygon.setOptions({strokeWeight: 4});
-    // marker.setPosition(event.latLng);
-    // marker.setVisible(true);
     updatePanelData(data);
     show(data);
   });
   google.maps.event.addListener(polygon, "mouseout", function(event) {
     polygon.setOptions({strokeColor: "#1a8cff"});
     polygon.setOptions({strokeWeight: 1});
-    // marker.setVisible(false);
   });
   mapData["polygon"].push(polygon);
   mapData["data"].push(data);
