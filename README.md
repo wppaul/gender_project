@@ -1,9 +1,9 @@
 Project Name : Gender Identification and Sentiment Analysis on Twitter through machine learning approaches
 ==========================================================================================================
-Author :  PENG WANG                 MINGYU GAO
-Student Number : 680868             692634
-Supervisor : Prof. Richard Sinnott
-Subject: COMP90055 COMPUTING PROJECT
+--Author :  PENG WANG                 MINGYU GAO
+--Student Number : 680868             692634
+--Supervisor : Prof. Richard Sinnott
+--Subject: COMP90055 COMPUTING PROJECT
 
 *************** Demo URL *************************
 
