@@ -1,0 +1,4 @@
+---
+# tasks file for set up the instance by boto
+- name: run boto
+  shell: cd ../files/tweetsharvesters/; python boto_install_VMS.py

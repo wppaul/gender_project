@@ -1,0 +1,8 @@
+---
+# tasks file for running webserver
+- name: clone the webserver code from github
+  shell: git clone https://github.com/wppaul/gender_project
+- name: copy file to VMs
+  copy: src=../files/run.sh dest=/home/ubuntu/gender_project/gender_project/ owner=ubuntu group=ubuntu mode=0644
+- name: run shell
+  shell: cd gender_project/gender_project/; chmod +x run.sh; sh run.sh

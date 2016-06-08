@@ -1,0 +1,6 @@
+---
+# file: runboto.yml
+- name: runboto to set up the instance and attach volumes automatically
+  hosts: localhost
+  roles:
+    - startboto

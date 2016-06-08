@@ -1,0 +1,18 @@
+---
+# tasks file for push scripts and run harvesters
+- name: run stream
+  shell: cd /home/ubuntu/tweetsharvesters; nohup python Stream.py >> Stream.txt&
+  async: 10
+  poll: 0
+- name: run search
+  shell: cd /home/ubuntu/tweetsharvesters; nohup python Search.py >> Search.txt&
+  async: 10
+  poll: 0
+- name: run club search
+  shell: cd /home/ubuntu/tweetsharvesters; nohup python ClubSearch.py >> ClubSearch.txt&
+  async: 10
+  poll: 0
+- name: run shopping search
+  shell: cd /home/ubuntu/tweetsharvesters; nohup python ClubSearch.py >> ShopSearch.txt&
+  async: 10
+  poll: 0

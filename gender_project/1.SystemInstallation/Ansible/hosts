@@ -1,0 +1,19 @@
+[localhost]
+localhost ansible_connection=local
+
+[allservers]
+115.146.89.192
+115.146.89.194
+115.146.89.193
+115.146.89.191
+
+[webservers]
+115.146.89.193
+
+[clouds:children]
+allservers
+webservers
+
+[clouds:vars]
+ansible_user=ubuntu
+ansible_private_key_file=/Users/Paul/Desktop/project_key.pem

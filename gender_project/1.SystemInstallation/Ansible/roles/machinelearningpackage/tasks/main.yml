@@ -1,0 +1,11 @@
+---
+# tasks file for machinelearningpackage
+- name: Install machine learning packages
+  pip: name={{item}} state=latest
+  with_items:
+    - scikit-learn
+    - nltk
+    - numpy
+    - scipy
+- name: Downloads nltk corpora
+  command: python  -c 'import nltk; nltk.download("all-corpora")'

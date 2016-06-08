@@ -1,0 +1,4 @@
+# file: master.yml
+- include: startboto.yml
+- include: allservers.yml
+- include: webservers.yml

@@ -1,0 +1,8 @@
+---
+# tasks file for mountvolume
+- name: create an ext4 partition
+  filesystem: fstype=ext4 dev=/dev/vdc
+- name: create a directory for data
+  file: path=/mnt/data state=directory
+- name: mount the volums
+  mount: name=/mnt/data src=/dev/vdc fstype=ext4 state=mounted

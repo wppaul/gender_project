@@ -1,0 +1,31 @@
+---
+# tasks file for installing couchdb and configuration
+- name: Install couchDB
+  apt: pkg=couchdb state=latest
+- name: create a directory for database
+  file: path=/mnt/data/ProjectDatabase state=directory
+- name: copy couchdb directory
+  shell: cp -R -p /var/lib/couchdb /mnt/data/ProjectDatabase/MYCOUCHDB
+- name: change port number
+  lineinfile: dest=/etc/couchdb/local.ini
+              regexp='^;port'
+              insertafter="[httpd]"
+              line="port = 5984"
+- name: change bind_address
+  lineinfile: dest=/etc/couchdb/local.ini
+              regexp='^;bind_address'
+              insertafter=";port"
+              line="bind_address = 0.0.0.0"
+
+- name: add directory for directory
+  lineinfile: dest=/etc/couchdb/local.ini
+              regexp="^database_dir"
+              insertafter="^uuid"
+              line="database_dir = /mnt/data/ProjectDatabase/MYCOUCHDB\nview_index_dir = /mnt/data/ProjectDatabase/MYCOUCHDB"
+- name: write access directory in alias
+  lineinfile: dest=/etc/apparmor.d/tunables/alias
+              regexp=''
+              insertafter=EOF
+              line="alias /var/lib/couchdb/ -> /mnt/data/ProjectDatabase/MYCOUCHDB/,"
+- name: restart a service couchdb
+  service: name=couchdb state=restarted

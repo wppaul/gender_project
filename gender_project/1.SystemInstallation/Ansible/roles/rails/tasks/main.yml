@@ -1,0 +1,13 @@
+---
+# tasks file for rails
+- name: install rails related packages
+  apt: name={{ item }}
+  with_items:
+    - ruby-dev
+    - zlib1g-dev
+    - liblzma-dev
+    - ruby
+    - ruby-railties
+    - git
+    - bundler
+    - libsqlite3-dev
